@@ -28,11 +28,11 @@
             padding: 0 15px;
         }
         .module {
-            background: #111;
+            background: #1a1a1a;
             margin: 20px 0;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
             display: flex;
             align-items: center;
         }
@@ -43,6 +43,7 @@
         }
         .module h2 {
             margin-top: 0;
+            color: #FFD700;
         }
         .cta {
             text-align: center;
@@ -58,7 +59,7 @@
             transition: background-color 0.3s;
         }
         .cta a:hover {
-            background-color: #E0A800;
+            background-color: #e6c300;
         }
         footer {
             text-align: center;
@@ -68,10 +69,10 @@
             margin-top: 40px;
         }
         form {
-            background: #111;
+            background: #1a1a1a;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
             margin: 20px 0;
             max-width: 600px;
             margin-left: auto;
@@ -86,10 +87,8 @@
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #FFD700;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            background-color: #222;
-            color: #FFD700;
         }
         form button {
             background-color: #FFD700;
@@ -98,7 +97,7 @@
             cursor: pointer;
         }
         form button:hover {
-            background-color: #E0A800;
+            background-color: #e6c300;
         }
         .payment {
             text-align: center;
@@ -115,7 +114,7 @@
             transition: background-color 0.3s;
         }
         .payment a:hover {
-            background-color: #E0A800;
+            background-color: #e6c300;
         }
     </style>
 </head>
@@ -188,16 +187,23 @@
             </div>
         </section>
 
-        <form action="submit_email.php" method="post">
+        <form action="mailto:YOUR_EMAIL@example.com" method="post" enctype="text/plain">
             <h2>Inscrivez-vous pour recevoir plus d'informations</h2>
-            <label for="email"> E-mail :</label>
-            <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+            <label for="email">Adresse email :</label>
+            <input type="email" id="email" name="email" placeholder="ascompacte10@gmail.com" required>
             <button type="submit">S'inscrire</button>
         </form>
 
         <div class="payment">
             <h2>Finalisez votre achat</h2>
-            <a href="https://stripe.com/pay" target="_blank">Payer avec Stripe</a>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="business" value="bohicosloane05@gmail.com">
+                <input type="hidden" name="item_name" value="Formation Complète">
+                <input type="hidden" name="currency_code" value="EUR">
+                <input type="hidden" name="amount" value="49.99">
+                <button type="submit">Payer avec PayPal</button>
+            </form>
         </div>
 
         <div class="cta">
@@ -205,7 +211,7 @@
         </div>
     </div>
     <footer>
-        <p>&copy; 2025 Comment devenir riche? . Tous droits réservés.</p>
+        <p>&copy; 2025 Treys billions. Tous droits réservés.</p>
     </footer>
 </body>
 </html>
