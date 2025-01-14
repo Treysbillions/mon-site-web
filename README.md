@@ -6,7 +6,7 @@ Bienvenue sur le dépôt de la formation complète "Transformez Votre Avenir Fin
 Ce site vise à fournir des informations détaillées sur notre formation, à capturer les inscriptions par email et à permettre les paiements via Stripe.
 
 ## 🖥️ Aperçu du Site
-Le site est en ligne et accessible ici : [Nom du site](https://votrenom.github.io/mon-site-web/)
+Le site est en ligne et accessible ici : [Treys billions](https://votrenom.github.io/mon-site-web/)
 
 ### 📋 Contenu du site
 Le site contient :
