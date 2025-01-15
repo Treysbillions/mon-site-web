@@ -70,18 +70,7 @@
             max-width: 600px;
             text-align: center;
             transition: transform 0.3s ease;
-            animation: fadeInUp 1s ease-out;
             background-color: #f0f0f0;
-        }
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
         .formation:hover {
             transform: scale(1.05);
@@ -114,6 +103,7 @@
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
             animation: fadeIn 2s ease-in;
         }
+
         .diaporama-container {
             position: relative;
             max-width: 100%;
@@ -256,7 +246,21 @@
         <h2>Transformez votre avenir professionnel grâce à nos formations de qualité, spécialement conçues pour vous assurer un succès durable.</h2>
         <p><strong>Nous vous offrons des parcours de formation innovants, adaptés aux défis du marché actuel. Que vous soyez en reconversion, en quête de nouvelles compétences, ou désireux de perfectionner votre expertise, nos programmes vous propulsent vers l'excellence.</strong></p>
         <p><strong>Rejoignez une communauté de professionnels passionnés et bâtissez un avenir brillant avec des formations certifiées et reconnues. Explorez nos formations et commencez dès aujourd'hui à investir dans votre succès !</strong></p>
-        <img src="accueil.jpg" alt="Image Accueil" style="max-width: 80%; height: auto;">
+        <div class="formation">
+            <h2>Formation 1: Stratégies de Réussite</h2>
+            <p>Découvrez les clés du succès dans le monde des affaires avec cette formation complète.</p>
+            <button>Voir plus</button>
+        </div>
+        <div class="formation">
+            <h2>Formation 2: Investissement Intelligent</h2>
+            <p>Apprenez à investir intelligemment pour construire votre empire financier.</p>
+            <button>Voir plus</button>
+        </div>
+        <div class="formation">
+            <h2>Formation 3: Développement Personnel</h2>
+            <p>Transformez votre mentalité et boostez votre carrière avec cette formation.</p>
+            <button>Voir plus</button>
+        </div>
     </div>
 
     <div id="createur" class="container">
