@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Treys Billions propose des formations professionnelles innovantes pour vous aider à réussir dans le monde des affaires et des investissements.">
+    <meta name="keywords" content="formations professionnelles, succès, carrière, entrepreneur, business, réussite, développement personnel">
+    <meta name="author" content="Treys Billions">
     <title>Treys Billions - Formations Professionnelles</title>
     <style>
         body {
@@ -103,17 +106,6 @@
             background-color: #ffd700;
             color: #000000;
         }
-        .testimonial {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin: 20px auto;
-            max-width: 600px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .testimonial p {
-            font-style: italic;
-        }
         footer {
             text-align: center;
             padding: 30px 20px;
@@ -122,59 +114,44 @@
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
             animation: fadeIn 2s ease-in;
         }
-        #accueil img, .stat img, .testimonial img, #createur img {
-            display: block;
-            margin: 0 auto;
+        /* Diaporama CSS */
+        .diaporama-container {
+            position: relative;
             max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .diaporama-images {
+            display: none;
+            width: 100%;
             height: auto;
             border-radius: 10px;
-            transition: transform 0.3s ease;
         }
-        #accueil img:hover, .stat img:hover, .testimonial img:hover, #createur img:hover {
-            transform: scale(1.05);
+
+        .active {
+            display: block;
         }
-        .stat {
-            display: flex;
-            justify-content: space-evenly; /* Sépare les éléments sur la même ligne */
-            padding: 40px 0;
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            font-size: 24px;
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            transform: translateY(-50%);
         }
-        .stat div {
-            text-align: center;
+
+        .prev {
+            left: 10px;
         }
-        .stat div h3 {
-            color: #ffd700;
-            font-size: 36px;
-            font-weight: bold;
+
+        .next {
+            right: 10px;
         }
-        #createur .createur-photos {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            overflow: hidden;
-            max-width: 900px;
-            margin: 0 auto;
-            border-radius: 10px;
-        }
-        #createur .createur-photos img {
-            width: auto;
-            height: 300px;
-            border-radius: 10px;
-            animation: slide 10s infinite;
-        }
-        @keyframes slide {
-            0% {
-                transform: translateX(0);
-            }
-            33% {
-                transform: translateX(-100%);
-            }
-            66% {
-                transform: translateX(-200%);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
+
         .contact-form input, .contact-form select, .contact-form textarea {
             width: 100%;
             padding: 10px;
@@ -182,6 +159,7 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
+
         .contact-form button {
             background-color: #000000;
             color: #ffffff;
@@ -227,63 +205,32 @@
         <img src="accueil.jpg" alt="Image Accueil" style="max-width: 80%; height: auto;">
     </div>
 
-    <div id="formations" class="container">
-        <h2>Nos Formations</h2>
-        <div class="formation">
-            <h2>Packaging Argent</h2>
-            <p>Prix : 500€</p>
-            <p><strong>Idéal pour ceux qui débutent et souhaitent apprendre les bases solides.</strong></p>
-            <p><strong>Payez par carte bancaire.</strong></p>
-            <a href="https://www.paypal.com/paypalme/bohicosloane05/500" target="_blank"><button>Commander</button></a>
-        </div>
-        <div class="formation">
-            <h2>Packaging Gold</h2>
-            <p>Prix : 5000€</p>
-            <p><strong>Formation intermédiaire pour accélérer votre réussite et obtenir des résultats mesurables.</strong></p>
-            <p><strong>Payez par carte ou virement bancaire.</strong></p>
-            <a href="https://www.paypal.com/paypalme/bohicosloane05/5000" target="_blank"><button>Commander</button></a>
-        </div>
-        <div class="formation">
-            <h2>Packaging Diamond</h2>
-            <p>Prix : 10 000€</p>
-            <p><strong>Programme avancé pour les ambitieux, avec un accompagnement VIP personnalisé.</strong></p>
-            <p><strong>Payez par carte ou virement bancaire.</strong></p>
-            <p><strong>Rejoignez également notre <em>club d'investisseurs privé</em> pour des conseils exclusifs et des opportunités uniques !</strong></p>
-            <a href="https://www.paypal.com/paypalme/bohicosloane05/10000" target="_blank"><button>Commander</button></a>
-        </div>
-    </div>
-
-    <div id="concept" class="container">
-        <h2>Le Concept</h2>
-        <p><strong>Sur ce site de formation, nous croyons fermement que l'éducation est la clé du succès.</strong> Nos formations sont axées sur des méthodes éprouvées, vous offrant des outils pratiques pour atteindre vos objectifs financiers.</p>
-        <div class="stat">
-            <div>
-                <h3>95%</h3>
-                <p>Taux de satisfaction</p>
-            </div>
-            <div>
-                <h3>254</h3>
-                <p>Clients formés</p>
-            </div>
-            <div>
-                <h3>100%</h3>
-                <p>Résultats garantis</p>
-            </div>
-        </div>
-    </div>
-
     <div id="createur" class="container">
         <h2>Présentation du Créateur</h2>
         <p><strong>Treys Billions est un entrepreneur à succès. Ces formations sont le fruit de nombreuses années de travail acharné et de stratégies éprouvées.</strong></p>
         <p><strong>Loin d’être une simple théorie, chaque programme est conçu par un visionnaire qui a su transformer sa vie.</strong> Grâce à des stratégies efficaces et une détermination sans faille, il a atteint la liberté financière et construit un empire prospère. Aujourd'hui, il partage son savoir-faire avec vous pour vous permettre de réaliser votre potentiel et réussir à votre tour.</p>
         <p><strong>Suivez les traces de ceux qui ont osé rêver grand et découvrez les clés du succès, directement d'un entrepreneur qui a déjà fait ses preuves.</strong></p>
 
-        <div class="createur-photos">
-            <img src="createur1.jpg" alt="Photo du Créateur 1">
-            <img src="createur2.jpg" alt="Photo du Créateur 2">
-            <img src="createur3.jpg" alt="Photo du Créateur 3">
-            <img src="createur4.jpg" alt="Photo du Créateur 4">
+        <!-- Diaporama du créateur -->
+        <div class="diaporama-container">
+            <img src="createur1.jpg" alt="Photo du Créateur 1" class="diaporama-images active">
+            <img src="createur2.jpg" alt="Photo du Créateur 2" class="diaporama-images">
+            <img src="createur3.jpg" alt="Photo du Créateur 3" class="diaporama-images">
+            <img src="createur4.jpg" alt="Photo du Créateur 4" class="diaporama-images">
+            <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+            <button class="next" onclick="changeImage(1)">&#10095;</button>
         </div>
+
+        <script>
+            let currentIndex = 0;
+            const images = document.querySelectorAll('.diaporama-images');
+
+            function changeImage(direction) {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + direction + images.length) % images.length;
+                images[currentIndex].classList.add('active');
+            }
+        </script>
     </div>
 
     <div id="temoignages" class="container">
@@ -320,7 +267,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Treys Billions. Tous droits réservés.</p>
+        <p>&copy; 2025 Treys Billions. Tous droits réservés.</p>
     </footer>
 
 </body>
