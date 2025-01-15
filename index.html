@@ -12,9 +12,9 @@
             font-family: 'Times New Roman', serif;
             margin: 0;
             padding: 0;
-            background-color: #FFF8E1; /* Fond couleur crème */
+            background-color: #FFF8E1;
             color: #000000;
-            text-align: center; /* Centre le texte par défaut pour le body */
+            text-align: center;
         }
         header {
             background-color: #000000;
@@ -71,7 +71,7 @@
             text-align: center;
             transition: transform 0.3s ease;
             animation: fadeInUp 1s ease-out;
-            background-color: #f0f0f0; /* Fond gris pour chaque case de formation */
+            background-color: #f0f0f0;
         }
         @keyframes fadeInUp {
             from {
@@ -114,24 +114,20 @@
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
             animation: fadeIn 2s ease-in;
         }
-        /* Diaporama CSS */
         .diaporama-container {
             position: relative;
             max-width: 100%;
             margin: 0 auto;
         }
-
         .diaporama-images {
             display: none;
             width: 100%;
             height: auto;
             border-radius: 10px;
         }
-
         .active {
             display: block;
         }
-
         .prev, .next {
             position: absolute;
             top: 50%;
@@ -143,15 +139,12 @@
             border: none;
             transform: translateY(-50%);
         }
-
         .prev {
             left: 10px;
         }
-
         .next {
             right: 10px;
         }
-
         .contact-form input, .contact-form select, .contact-form textarea {
             width: 100%;
             padding: 10px;
@@ -159,7 +152,6 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
-
         .contact-form button {
             background-color: #000000;
             color: #ffffff;
@@ -170,6 +162,68 @@
         }
         .contact-form button:hover {
             background-color: #ffd700;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+
+            nav a {
+                margin: 10px 0;
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .formation {
+                margin: 10px 0;
+                padding: 15px;
+                max-width: 90%;
+            }
+
+            .diaporama-container img {
+                width: 100%; /* Diaporama ajuste la taille pour les mobiles */
+            }
+
+            footer {
+                padding: 15px 10px;
+            }
+
+            .formation h2 {
+                font-size: 22px;
+            }
+
+            .formation p {
+                font-size: 16px;
+            }
+        }
+
+        /* Responsive Design for Tablets */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            nav a {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+
+            .formation {
+                max-width: 80%;
+            }
+
+            .formation h2 {
+                font-size: 24px;
+            }
+
+            .formation p {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
