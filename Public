@@ -1,0 +1,12 @@
+/treys-billions
+  /public
+    /images
+      createur1.jpg
+      createur3.jpg
+      createur4.jpg
+    /videos
+      video.mp4
+  /src
+    index.html
+    style.css
+    script.js
