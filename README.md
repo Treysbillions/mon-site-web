@@ -62,7 +62,7 @@ Le site **Treys Billions** vise à :
 
 ## 📢 Hébergement et mise à jour
 
-- Le site est hébergé sur [Nom de l'hébergeur], avec des mises à jour régulières pour garantir la meilleure expérience utilisateur.
+- Le site est hébergé sur Vercel, avec des mises à jour régulières pour garantir la meilleure expérience utilisateur.
 - Les statistiques des clients formés se mettent automatiquement à jour grâce à un script intégré.
 
 ---
@@ -72,7 +72,7 @@ Le site **Treys Billions** vise à :
 Pour toute question ou suggestion, n'hésitez pas à nous écrire via notre [formulaire de contact](#) ou à nous suivre sur nos réseaux sociaux :
 
 - **Instagram** : [@treysbillions](#)
-- **LinkedIn** : [Treys Billions](#)
+- **TikTok** : [Treys Billions](#)
 
 Nous sommes là pour transformer votre avenir professionnel !
 
