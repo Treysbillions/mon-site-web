@@ -28,7 +28,7 @@ Ce projet est un site web conçu pour promouvoir les formations de **Treys Billi
 - **HTML5** : Structure et contenu du site.
 - **CSS3** : Styles et animations (avec Flexbox et Grid).
 - **JavaScript** : Fonctionnalités interactives (compteur, diaporama, navigation).
-- **[Nom de l'hébergeur]** : Hébergement et déploiement du site.
+- **Vercel** : Hébergement et déploiement du site.
 - **FileZilla** : Pour le transfert de fichiers via FTP.
 
 ---
