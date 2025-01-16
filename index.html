@@ -149,26 +149,60 @@
             color: #555;
         }
 
-        /* Diaporama */
-        .slideshow {
-            display: flex;
-            overflow: hidden;
-            justify-content: center;
-            position: relative;
-        }
+    /* Conteneur principal du diaporama */
+    .slideshow-container {
+        position: relative;
+        width: 100%;
+        max-width: 400px; /* Taille compacte pour le diaporama */
+        margin: 0 auto; /* Centrer horizontalement */
+        overflow: hidden;
+        border: 1px solid #ccc; /* Cadre léger */
+        border-radius: 10px; /* Coins arrondis */
+    }
 
-        .slideshow img {
-            width: 300px;
-            margin: 0 10px;
-            border-radius: 10px;
-            border: 2px solid #c69c6d;
-            transition: transform 0.3s ease;
-        }
+    /* Slideshow */
+    .slideshow {
+        display: flex;
+        transition: transform 0.5s ease-in-out; /* Transition fluide */
+    }
 
-        .slideshow img:hover {
-            transform: scale(1.1);
-        }
+    /* Slide */
+    .slide {
+        min-width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center; /* Centrer l'image dans le cadre */
+        align-items: center;
+    }
 
+    .slide img {
+        width: 150px; /* Largeur fixe pour toutes les images */
+        height: 150px; /* Hauteur fixe pour toutes les images */
+        object-fit: cover; /* Recadrage de l'image pour remplir le cadre */
+        border-radius: 10px; /* Coins arrondis pour les images */
+    }
+
+    /* Points indicateurs */
+    .dots {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        height: 12px;
+        width: 12px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .dot.active {
+        background-color: #717171; /* Couleur active */
+    
+        }
+        
         /* Formations */
         .formations {
             display: flex;
@@ -178,14 +212,32 @@
         }
 
         .formation-card {
-            background-color: #fff;
+            background-color: #f0f0f0;  /* Gris clair pour le fond */
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 20px;
             text-align: center;
             width: 300px;
+            display: flex;
+            flex-direction: column;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .payment-button, .order-button {
+        margin-top: auto;  /* Pousse le bouton vers le bas du cadre */
+        padding: 10px 20px;
+        background-color: #c69c6d;  /* Bordure dorée */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        }
+
+        .payment-button:hover, .order-button:hover {
+        background-color: #b59e68;  /* Couleur légèrement plus foncée au survol */
         }
 
         .formation-card:hover {
@@ -228,19 +280,95 @@
             text-align: center;
             padding: 20px;
         }
-    </style>
-</head>
 
-<body>
-    <!-- En-tête avec vidéo -->
+        style
+        
+                /* Styles de base */ 
+               {
+                    font-family: Arial, sans-serif;
+                    background-color: #f8f5f0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    margin: 0;
+                }
+        
+                .diaporama-container {
+                    position: relative;
+                    width: 60%;
+                    height: 400px; /* Taille réduite des images */
+                    overflow: hidden;
+                    border-radius: 15px;
+                }
+        
+                .slides {
+                    display: flex;
+                    transition: transform 1s ease, opacity 0.5s ease;
+                    height: 100%;
+                }
+        
+                .slide {
+                    min-width: 100%;
+                    box-sizing: border-box;
+                    position: relative;
+                    transition: transform 0.5s ease, opacity 0.5s ease;
+                }
+        
+                .slide img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 15px;
+                    transform: scale(1);
+                    transition: transform 0.3s ease-in-out;
+                }
+        
+                .slide img:hover {
+                    transform: scale(1.1);
+                }
+        
+                .diaporama-btn {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-color: rgba(0, 0, 0, 0.5);
+                    color: white;
+                    font-size: 2rem;
+                    padding: 10px;
+                    border: none;
+                    cursor: pointer;
+                    z-index: 10;
+                }
+        
+                .prev {
+                    left: 0;
+                }
+        
+                .next {
+                    right: 0;
+                }
+                body
+                    /* Style pour l'image d'accueil */
+                    .accueil-img {
+                        width: 50%; /* Réduit la largeur à 50% de l'élément parent */
+                        max-width: 600px; /* Limite la largeur maximale de l'image */
+                        height: auto; /* Laisse la hauteur s'ajuster automatiquement */
+                        margin: 0 auto; /* Centre l'image horizontalement */
+                        display: block; /* Assure que l'image est un élément de bloc pour le centrage */
+                    }
+                </style>
+            </head>
+            <body
+     En-tête avec vidéo -->
     <header>
-        <video autoplay muted loop>
+            <video width="100%" height="auto" autoplay muted loop>
             <source src="videos/video.mp4" type="video/mp4">
             Votre navigateur ne supporte pas la lecture vidéo.
         </video>
         <div class="overlay">
             <h1>Treys Billions</h1>
-            <p>Transformez votre avenir professionnel dès aujourd'hui</p>
+            <p><strong>Transformez votre avenir professionnel dès aujourd'hui</strong></p>
             <button onclick="window.location.href='#formations'">Découvrez nos formations</button>
         </div>
     </header>
@@ -251,7 +379,7 @@
         <ul>
             <li><a href="#accueil">Accueil</a></li>
             <li><a href="#formations">Formations</a></li>
-            <li><a href="#créateur">Créateur</a></li>
+            <li><a href="#createur">Créateur</a></li>
             <li><a href="#temoignages">Témoignages</a></li>
             <li><a href="#statistiques">Statistiques</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -281,9 +409,21 @@
             <li><strong>✔ Accessibilité 24/7</strong> : Apprenez à votre rythme, où que vous soyez, grâce à notre plateforme intuitive et facile d’utilisation.</li>
             <li><strong>✔ Une variété de sujets</strong> : Que vous souhaitiez acquérir de nouvelles compétences, vous reconvertir ou approfondir vos connaissances, nous proposons des parcours variés couvrant de nombreux secteurs.</li>
             <li><strong>✔ Support personnalisé</strong> : Notre équipe est disponible pour vous accompagner tout au long de votre parcours.</li>
-        </ul>
-        <!-- Image -->
-                  <img SRC="images/accueil.jpg" alt="Photo accueil">
+        </ul> 
+        <html lang="fr">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Page d'Accueil</title>
+    
+                    
+                <section id="presentation">
+                    <div class="container">
+                        <img src="images/accueil.jpg" alt="Photo accueil" class="accueil-img">
+                    </div>
+                </section>
+            </body>
+            </html>
 
         <h3 style="color: #ffd700; font-size: 28px; margin-top: 40px;">Notre engagement : votre réussite</h3>
         <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
@@ -309,8 +449,13 @@
                     <h2>Packaging Argent</h2>
                     <p><strong>Prix : 500€</strong></p>
                     <p>Accédez aux bases essentielles pour démarrer et acquérir les compétences fondamentales nécessaires pour progresser dans votre domaine.</p>
-
-
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
                     <p><strong>Payer par carte bancaire.</strong></p>
                     <form action="https://www.paypal.com" method="post">
                         <button onclick="window.location.href='https://www.paypal.com/paypalme/bohicosloane05/500';">Commander</button>
@@ -319,9 +464,13 @@
                 <div class="formation-card">
                     <h2>Packaging Gold</h2>
                     <p><strong>Prix : 5 000€</strong></p>
-                    
-
                     <p>Approfondissez vos connaissances et devenez un expert. Ce programme est conçu pour vous guider dans des stratégies avancées..</p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
                     <p><strong>Payer par carte ou virement bancaire.</strong></p>
                     <form action="https://www.paypal.com" method="post">
                         <button onclick="window.location.href='https://www.paypal.com/paypalme/bohicosloane05/5000';">Commander</button>
@@ -331,7 +480,7 @@
                     <h2>Packaging Diamond</h2>
                     <p><strong>Prix : 10 000€</strong></p>
                     <p>Programme avancé pour les ambitieux, avec un accompagnement VIP personnalisé.</p>
-                    <p><i></i>Accédez au cercle exclusif des investisseurs privés et bénéficiez d'opportunités inédites pour propulser vos projets vers le succès.</i></p>
+                    <p><i>Accédez au cercle exclusif des investisseurs privés et bénéficiez d'opportunités inédites pour propulser vos projets vers le succès.</i></p>
                     <p><strong>Payez par carte ou virement bancaire.</strong></p>
                     <button onclick="window.location.href='https://www.paypal.com/paypalme/bohicosloane05/10000';">Commander</button>
                 </div>
@@ -339,25 +488,84 @@
         </div>
     </section>
 
-     <!-- Page Créateur -->
+     <!-- Créateur -->
      <section id="createur">
-        <div class="container createur-content">
+        <div class="container">
             <h2>Découvrez le Créateur</h2>
             <p>
                 Le créateur de Treys Billions est un passionné d'investissement et de développement personnel. Avec une vision claire de l'éducation en ligne et du partage de connaissances, il a conçu cette plateforme pour aider ceux qui souhaitent exceller dans leurs carrières.
             </p>
-            <div class="slideshow-createur">
-                <img src="images/createur1.jpg" alt="Photo du créateur 1">
-                <img src="images/createur2.jpg" alt="Photo du créateur 2">
-                <img src="images/createur3.jpg" alt="Photo du créateur 3">
-                <img src="images/createur4.jpg" alt="Photo du créateur 4">
-            </div>
+<!-- Diaporama -->
+<div class="slideshow-container">
+    <div class="slideshow">
+        <div class="slide">
+            <img src="images/createur1.jpg" alt="Image 1">
         </div>
-    </section>
+        <div class="slide">
+            <img src="images/createur3.jpg" alt="Image 2">
+        </div>
+        <div class="slide">
+            <img src="images/createur4.jpg" alt="Image 3">
+        </div>
+    </div>
 
+    <!-- Points indicateurs -->
+    <div class="dots">
+        <span class="dot" onclick="setSlide(0)"></span>
+        <span class="dot" onclick="setSlide(1)"></span>
+        <span class="dot" onclick="setSlide(2)"></span>
+    </div>
+</div>
+
+<script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const dots = document.querySelectorAll('.dot');
+    let slideInterval;
+
+    // Fonction pour mettre à jour l'affichage des slides
+    function updateSlidesPosition() {
+        const newTransformValue = -currentIndex * 100;
+        const slidesContainer = document.querySelector('.slideshow');
+        slidesContainer.style.transform = `translateX(${newTransformValue}%)`;
+
+        // Mettre à jour les indicateurs
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    // Fonction pour passer à la slide suivante automatiquement
+    function autoSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlidesPosition();
+    }
+
+    // Fonction pour naviguer manuellement vers une slide
+    function setSlide(index) {
+        currentIndex = index;
+        updateSlidesPosition();
+        restartAutoSlide(); // Relancer le timer automatique après une interaction
+    }
+
+    // Redémarrer le diaporama après interaction
+    function restartAutoSlide() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(autoSlide, 3000); // Changement toutes les 3 secondes
+    }
+
+    // Initialisation du diaporama
+    window.onload = () => {
+        updateSlidesPosition(); // Assurer l'affichage correct initial
+        slideInterval = setInterval(autoSlide, 3000); // Lancement automatique
+    };
+</script>
+
+    
     <!-- Témoignages -->
     <section id="temoignages">
-        <div class="container temoignages-content">
+        <div class="container">
             <h2>Ils ont suivi nos formations</h2>
             <p>Découvrez les témoignages de ceux qui ont transformé leur carrière grâce à nos formations.</p>
             <div class="temoignage-card">
@@ -376,12 +584,12 @@
     </section>
 
     <!-- Statistiques -->
-    <section id="statistics">
+    <section id="statistiques">
         <div class="container">
             <h2>Statistiques</h2>
             <div class="statistics">
                 <div class="stat">
-                    <h3>254+</h3>
+                     <h3 id="counter">254</h3>
                     <p>Personnes formées</p>
                 </div>
                 <div class="stat">
