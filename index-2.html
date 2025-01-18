@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treys Billions - Formations Professionnelles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f5f0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img, video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button {
+            border: none;
+            padding: 10px 20px;
+            background-color: #c69c6d;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #a6815e;
+        }
+
+        /* En-tête avec vidéo */
+        header {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        header video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        header .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        header .overlay h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header .overlay p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Barre de navigation */
+        nav {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Sections */
+        section {
+            padding: 50px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #c69c6d;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+    /* Conteneur principal du diaporama */
+    .slideshow-container {
+        position: relative;
+        width: 100%;
+        max-width: 400px; /* Taille compacte pour le diaporama */
+        margin: 0 auto; /* Centrer horizontalement */
+        overflow: hidden;
+        border: 1px solid #ccc; /* Cadre léger */
+        border-radius: 10px; /* Coins arrondis */
+    }
+
+    /* Slideshow */
+    .slideshow {
+        display: flex;
+        transition: transform 0.5s ease-in-out; /* Transition fluide */
+    }
+
+    /* Slide */
+    .slide {
+        min-width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center; /* Centrer l'image dans le cadre */
+        align-items: center;
+    }
+
+    .slide img {
+        width: 150px; /* Largeur fixe pour toutes les images */
+        height: 150px; /* Hauteur fixe pour toutes les images */
+        object-fit: cover; /* Recadrage de l'image pour remplir le cadre */
+        border-radius: 10px; /* Coins arrondis pour les images */
+    }
+
+    /* Points indicateurs */
+    .dots {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        height: 12px;
+        width: 12px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .dot.active {
+        background-color: #717171; /* Couleur active */
+    
+        }
+        
+        /* Formations */
+        .formations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .formation-card {
+            background-color: #f0f0f0;  /* Gris clair pour le fond */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .payment-button, .order-button {
+        margin-top: auto;  /* Pousse le bouton vers le bas du cadre */
+        padding: 10px 20px;
+        background-color: #c69c6d;  /* Bordure dorée */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        }
+
+        .payment-button:hover, .order-button:hover {
+        background-color: #b59e68;  /* Couleur légèrement plus foncée au survol */
+        }
+
+        .formation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .formation-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Statistiques */
+        .statistics {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .stat {
+            background: #fdf7f2;
+            border: 2px solid #c69c6d;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #c69c6d;
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        style
+        
+                /* Styles de base */ 
+               {
+                    font-family: Arial, sans-serif;
+                    background-color: #f8f5f0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    margin: 0;
+                }
+        
+                .diaporama-container {
+                    position: relative;
+                    width: 60%;
+                    height: 400px; /* Taille réduite des images */
+                    overflow: hidden;
+                    border-radius: 15px;
+                }
+        
+                .slides {
+                    display: flex;
+                    transition: transform 1s ease, opacity 0.5s ease;
+                    height: 100%;
+                }
+        
+                .slide {
+                    min-width: 100%;
+                    box-sizing: border-box;
+                    position: relative;
+                    transition: transform 0.5s ease, opacity 0.5s ease;
+                }
+        
+                .slide img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 15px;
+                    transform: scale(1);
+                    transition: transform 0.3s ease-in-out;
+                }
+        
+                .slide img:hover {
+                    transform: scale(1.1);
+                }
+        
+                .diaporama-btn {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-color: rgba(0, 0, 0, 0.5);
+                    color: white;
+                    font-size: 2rem;
+                    padding: 10px;
+                    border: none;
+                    cursor: pointer;
+                    z-index: 10;
+                }
+        
+                .prev {
+                    left: 0;
+                }
+        
+                .next {
+                    right: 0;
+                }
+                body
+                    /* Style pour l'image d'accueil */
+                    .accueil-img {
+                        width: 50%; /* Réduit la largeur à 50% de l'élément parent */
+                        max-width: 600px; /* Limite la largeur maximale de l'image */
+                        height: auto; /* Laisse la hauteur s'ajuster automatiquement */
+                        margin: 0 auto; /* Centre l'image horizontalement */
+                        display: block; /* Assure que l'image est un élément de bloc pour le centrage */
+                    }
+                </style>
+            </head>
+            <body
+     En-tête avec vidéo -->
+    <header>
+            <video width="100%" height="auto" autoplay muted loop>
+            <source src="public/videos/video.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+        <div class="overlay">
+            <h1>Treys Billions</h1>
+            <p><strong>Transformez votre avenir professionnel dès aujourd'hui</strong></p>
+            <button onclick="window.location.href='#formations'">Découvrez nos formations</button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Treys Billions</div>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#formations">Formations</a></li>
+            <li><a href="#createur">Créateur</a></li>
+            <li><a href="#temoignages">Témoignages</a></li>
+            <li><a href="#statistiques">Statistiques</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Présentation -->
+    <section id="presentation">
+        <div class="container">
+            </div>
+        </div>
+    </section>
+   
+    <!--Accueil-->
+    <div id="accueil" class="container" style="text-align: center; padding: 40px 20px; background-color: #f5f5dc; color: #000000;">
+        <h2>Bienvenue sur le site de formations de TREYS BILLIONS</h2>
+        <h2 style="color: #000000; font-size: 36px; margin-bottom: 20px;">Votre destination pour des formations en ligne de qualité</h2>
+        <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+            Sur ce site, nous croyons au pouvoir de la connaissance pour transformer des vies. 
+            Notre plateforme de formation en ligne est conçue pour vous accompagner dans votre quête de développement personnel et professionnel, 
+            en mettant à votre disposition des programmes adaptés à vos besoins.
+        </p>
+    
+        <h3 style="color: #ffd700; font-size: 28px; margin-top: 40px;">Pourquoi choisir le site de formation de TREYS BILLIONS?</h3>
+        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; text-align: left; max-width: 800px; margin: 0 auto;">
+            <li><strong>✔ Des formations certifiées et reconnues</strong> : Tous nos programmes sont élaborés par des experts dans leurs domaines, pour garantir une expérience d’apprentissage enrichissante et valorisée.</li>
+            <li><strong>✔ Accessibilité 24/7</strong> : Apprenez à votre rythme, où que vous soyez, grâce à notre plateforme intuitive et facile d’utilisation.</li>
+            <li><strong>✔ Une variété de sujets</strong> : Que vous souhaitiez acquérir de nouvelles compétences, vous reconvertir ou approfondir vos connaissances, nous proposons des parcours variés couvrant de nombreux secteurs.</li>
+            <li><strong>✔ Support personnalisé</strong> : Notre équipe est disponible pour vous accompagner tout au long de votre parcours.</li>
+        </ul> 
+        <html lang="fr">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Page d'Accueil</title>
+    
+                    
+                <section id="presentation">
+                    <div class="container">
+                        <img src="public/images/accueil.jpg" alt="Photo accueil" class="accueil-img">
+                    </div>
+                </section>
+            </body>
+            </html>
+
+        <h3 style="color: #ffd700; font-size: 28px; margin-top: 40px;">Notre engagement : votre réussite</h3>
+        <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+            Rejoignez une communauté de passionnés et de professionnels motivés, prêts à franchir une nouvelle étape vers l’excellence. 
+            Chaque formation est pensée pour vous offrir des outils concrets et directement applicables à votre vie ou à votre carrière.
+        </p>
+        <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+            Explorez nos formations dès aujourd’hui et prenez le contrôle de votre avenir. 
+            Sur le site de formations <strong>TREYS BILLIONS</strong>, votre succès est notre priorité.
+        </p>
+        <a href="#formations" style="display: inline-block; background-color: #ffd700; color: #000000; text-decoration: none; font-size: 20px; padding: 15px 30px; border-radius: 5px; margin-top: 20px;">
+            Commencez dès maintenant votre aventure avec nous !
+        </a>
+    </div>
+    
+         <!-- Formations -->
+    <section id="formations">
+        <div class="container">
+            <h2>Nos Formations</h2>
+            <p>Choisissez le forfait qui vous correspond et commencez dès aujourd'hui.</p>
+            <div class="formations">
+                <div class="formation-card">
+                    <h2>Packaging Argent</h2>
+                    <p><strong>Prix : 500€</strong></p>
+                    <p>Accédez aux bases essentielles pour démarrer et acquérir les compétences fondamentales nécessaires pour progresser dans votre domaine.</p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Payer par carte bancaire.</strong></p>
+                    <form action="https://www.paypal.com" method="post">
+                        <button onclick="window.location.href='https://www.paypal.com/paypalme/bohicosloane05/500';">Commander</button>
+                    </form>
+                </div>
+                <div class="formation-card">
+                    <h2>Packaging Gold</h2>
+                    <p><strong>Prix : 5 000€</strong></p>
+                    <p>Approfondissez vos connaissances et devenez un expert. Ce programme est conçu pour vous guider dans des stratégies avancées..</p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Payer par carte ou virement bancaire.</strong></p>
+                    <form action="https://www.paypal.com" method="post">
+                        <button onclick="window.location.href='https://www.paypal.com/paypalme/bohicosloane05/5000';">Commander</button>
+                    </form>
+                </div>
+                <div class="formation-card">
+                    <h2>Packaging Diamond</h2>
+                    <p><strong>Prix : 10 000€</strong></p>
+                    <p>Programme avancé pour les ambitieux, avec un accompagnement VIP personnalisé.</p>
+                    <p><i>Accédez au cercle exclusif des investisseurs privés et bénéficiez d'opportunités inédites pour propulser vos projets vers le succès.</i></p>
+                    <p><strong>Payez par carte ou virement bancaire.</strong></p>
+                    <button onclick="window.location.href='https://www.paypal.com/paypalme/bohicosloane05/10000';">Commander</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Créateur -->
+     <section id="createur">
+        <div class="container">
+            <h2>Découvrez le Créateur</h2>
+            <p>
+                Le créateur de Treys Billions est un passionné d'investissement et de développement personnel. Avec une vision claire de l'éducation en ligne et du partage de connaissances, il a conçu cette plateforme pour aider ceux qui souhaitent exceller dans leurs carrières.
+            </p>
+<!-- Diaporama -->
+<div class="slideshow-container">
+    <div class="slideshow">
+        <div class="slide">
+            <img src="public/images/createur1.jpg" alt="Image 1">
+        </div>
+        <div class="slide">
+            <img src="public/images/createur3.jpg" alt="Image 2">
+        </div>
+        <div class="slide">
+            <img src="public/images/createur4.jpg" alt="Image 3">
+        </div>
+    </div>
+
+    <!-- Points indicateurs -->
+    <div class="dots">
+        <span class="dot" onclick="setSlide(0)"></span>
+        <span class="dot" onclick="setSlide(1)"></span>
+        <span class="dot" onclick="setSlide(2)"></span>
+    </div>
+</div>
+
+<script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const dots = document.querySelectorAll('.dot');
+    let slideInterval;
+
+    // Fonction pour mettre à jour l'affichage des slides
+    function updateSlidesPosition() {
+        const newTransformValue = -currentIndex * 100;
+        const slidesContainer = document.querySelector('.slideshow');
+        slidesContainer.style.transform = `translateX(${newTransformValue}%)`;
+
+        // Mettre à jour les indicateurs
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    // Fonction pour passer à la slide suivante automatiquement
+    function autoSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlidesPosition();
+    }
+
+    // Fonction pour naviguer manuellement vers une slide
+    function setSlide(index) {
+        currentIndex = index;
+        updateSlidesPosition();
+        restartAutoSlide(); // Relancer le timer automatique après une interaction
+    }
+
+    // Redémarrer le diaporama après interaction
+    function restartAutoSlide() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(autoSlide, 3000); // Changement toutes les 3 secondes
+    }
+
+    // Initialisation du diaporama
+    window.onload = () => {
+        updateSlidesPosition(); // Assurer l'affichage correct initial
+        slideInterval = setInterval(autoSlide, 3000); // Lancement automatique
+    };
+</script>
+
+    
+    <!-- Témoignages -->
+    <section id="temoignages">
+        <div class="container">
+            <h2>Ils ont suivi nos formations</h2>
+            <p>Découvrez les témoignages de ceux qui ont transformé leur carrière grâce à nos formations.</p>
+            <div class="temoignage-card">
+                <p><b><i>"Cette formation a été un véritable tournant dans ma carrière ! Les conseils pratiques et l'accompagnement sont inestimables."</i></b></p>
+                <p class="author">Marie, Lyon</p>
+            </div>
+            <div class="temoignage-card">
+                <p><b><i>"Je suis passé de débutant à un expert en seulement quelques mois. Je recommande vivement !"</i></b></p>
+                <p class="author">Pierre, Paris</p>
+            </div>
+            <div class="temoignage-card">
+                <p><b><i>"Treys Billions m'a permis de comprendre des concepts que je n'avais jamais imaginés. Je suis maintenant financièrement indépendant."</i></b></p>
+                <p class="author">Lucie, Marseille</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistiques -->
+    <section id="statistiques">
+        <div class="container">
+            <h2>Statistiques</h2>
+            <div class="statistics">
+                <div class="stat">
+                     <h3 id="counter">254</h3>
+                    <p>Personnes formées</p>
+                </div>
+                <div class="stat">
+                    <h3>3</h3>
+                    <p>Formations disponibles</p>
+                </div>
+                <div class="stat">
+                    <h3>100%</h3>
+                    <p>Satisfaction client</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <p>Nous sommes là pour répondre à vos questions.</p>
+            <form action="mailto:ascompacte10@gmail.com" method="post" enctype="text/plain" style="text-align: center;">
+                <input type="text" placeholder="Nom" required style="padding: 10px; margin: 5px; width: 80%;">
+                <input type="email" placeholder="Email" required style="padding: 10px; margin: 5px; width: 80%;">
+                <select required style="padding: 10px; margin: 5px; width: 80%;">
+                    <option value="">Raison du contact</option>
+                    <option value="formation">Formation</option>
+                    <option value="paiement">Paiement</option>
+                    <option value="autres">Autres</option>
+                </select>
+                <textarea placeholder="Votre message" required style="padding: 10px; margin: 5px; width: 80%;"></textarea>
+                <br>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 Treys Billions. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>
+
+bash
+git add public/
+git commit -m "Ajout des fichiers images et vidéos dans le dossier public"
+git push
+
